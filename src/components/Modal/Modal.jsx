@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Backdrop, ModalWrapper, Wrapper, Title, Button } from './Modal.styled';
 
+
 const Modal = ({ children, onClose }) => {
-  const [modalRoot, setModalRoot] = useState(null);
+  const modalRoot = document.querySelector('#modal-root');
 
-  useEffect(() => {
-    const modalRoot = document.createElement('div');
-    modalRoot.id = 'modal-root';
-    document.body.appendChild(modalRoot);
-    setModalRoot(modalRoot);
+  // useEffect(() => {
+  //   const modalRoot = document.createElement('div');
+  //   modalRoot.id = 'modal-root';
+  //   document.body.appendChild(modalRoot);
+  //   setModalRoot(modalRoot);
 
-    return () => {
-      document.body.removeChild(modalRoot);
-    };
-  }, []);
+  //   return () => {
+  //     document.body.removeChild(modalRoot);
+  //   };
+  // }, []);
 
   useEffect(() => {
     if (modalRoot) {
